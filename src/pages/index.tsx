@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import Search from "../components/Search";
+import GetRecipeUseCase from "../../domain/recipe/UseCases/GetRecipeUseCase";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const handleOnSearch = async (ingredients: string) => {
-    const url = new URL(window.location.origin + "/api/recipe");
-    url.searchParams.set("ingredients", ingredients);
-    const resp = await fetch(url);
+    const resp = GetRecipeUseCase.create().execute({ ingredients });
     console.log(resp);
   };
 
