@@ -1,15 +1,4 @@
-export type RecipeUseCaseType = {
-  service: Service;
-  execute?: ({ ingredients }: RecipeUseCaseProps) => Promise<never[]>;
-  //execute?: () => Promise<never[]>;
-};
-
-export type RecipeServiceType = {
-  repository: Repository;
-  execute?: ({ ingredients }: RecipeUseCaseProps) => Promise<never[]>;
-};
-
-type Service = {
+export type Service = {
   execute: ({ ingredients }: RecipeUseCaseProps) => Promise<never[]>;
 };
 
