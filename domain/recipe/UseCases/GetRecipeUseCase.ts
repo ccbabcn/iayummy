@@ -1,10 +1,14 @@
 import GetRecipeService from "../Services/GetRecipeService";
-import { RecipeUseCaseType, RecipeUseCaseProps } from "../types.d";
+import { Service, RecipeUseCaseProps } from "../types.d";
+
+type ConstructorType = {
+  service: Service;
+};
 
 class GetRecipeUseCase {
   service;
 
-  constructor({ service }: RecipeUseCaseType) {
+  constructor({ service }: ConstructorType) {
     this.service = service;
   }
 

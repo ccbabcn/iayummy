@@ -1,10 +1,14 @@
 import HTTPRecipeRepository from "../Repositories/HTTPRecipeRepository";
-import { RecipeServiceType, RecipeUseCaseProps } from "../types.d";
+import { Repository, RecipeUseCaseProps } from "../types.d";
+
+type ConstructorType = {
+  repository: Repository;
+};
 
 class GetRecipeService {
   repository;
 
-  constructor({ repository }: RecipeServiceType) {
+  constructor({ repository }: ConstructorType) {
     this.repository = repository;
   }
 
