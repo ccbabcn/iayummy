@@ -1,21 +1,25 @@
-import GetRecipeService from "../Services/GetRecipeService";
-import { RecipeUseCaseType, RecipeUseCaseProps } from "../types.d";
+import GetRecipeService from '../Services/GetRecipeService'
+import { Service, RecipeUseCaseProps } from '../types.d'
+
+type ConstructorType = {
+  service: Service
+}
 
 class GetRecipeUseCase {
-  service;
+  service
 
-  constructor({ service }: RecipeUseCaseType) {
-    this.service = service;
+  constructor({ service }: ConstructorType) {
+    this.service = service
   }
 
   static create() {
-    const service = GetRecipeService.create();
-    return new GetRecipeUseCase({ service });
+    const service = GetRecipeService.create()
+    return new GetRecipeUseCase({ service })
   }
 
   async execute({ ingredients }: RecipeUseCaseProps) {
-    return this.service.execute({ ingredients });
+    return this.service.execute({ ingredients })
   }
 }
 
-export default GetRecipeUseCase;
+export default GetRecipeUseCase

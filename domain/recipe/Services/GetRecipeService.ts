@@ -1,21 +1,25 @@
-import HTTPRecipeRepository from "../Repositories/HTTPRecipeRepository";
-import { RecipeServiceType, RecipeUseCaseProps } from "../types.d";
+import HTTPRecipeRepository from '../Repositories/HTTPRecipeRepository'
+import { Repository, RecipeUseCaseProps } from '../types.d'
+
+type ConstructorType = {
+  repository: Repository
+}
 
 class GetRecipeService {
-  repository;
+  repository
 
-  constructor({ repository }: RecipeServiceType) {
-    this.repository = repository;
+  constructor({ repository }: ConstructorType) {
+    this.repository = repository
   }
 
   static create() {
-    const repository = HTTPRecipeRepository.create();
-    return new GetRecipeService({ repository });
+    const repository = HTTPRecipeRepository.create()
+    return new GetRecipeService({ repository })
   }
 
   async execute({ ingredients }: RecipeUseCaseProps) {
-    return this.repository.getRecipe({ ingredients });
+    return this.repository.getRecipe({ ingredients })
   }
 }
 
-export default GetRecipeService;
+export default GetRecipeService
