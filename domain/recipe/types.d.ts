@@ -1,9 +1,9 @@
 export type Service = {
-  execute: ({ ingredients }: RecipeUseCaseProps) => Promise<never[]>;
+  execute: ({ ingredients }: RecipeUseCaseProps) => Promise<IRecipe>;
 };
 
 export type Repository = {
-  getRecipe: ({ ingredients }: RecipeUseCaseProps) => Promise<never[]>; // IRecipe
+  getRecipe: ({ ingredients }: RecipeUseCaseProps) => Promise<IRecipe>;
 };
 
 export interface IIngredient {

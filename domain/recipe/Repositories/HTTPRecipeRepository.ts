@@ -10,8 +10,6 @@ class HTTPRecipeRepository {
     url.searchParams.set("ingredients", ingredients);
     const resp = await fetch(url);
     const data = await resp.json();
-    console.log({ data });
-    debugger;
     return data;
   }
 }
